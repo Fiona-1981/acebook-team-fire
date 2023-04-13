@@ -4,8 +4,11 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "dependencies": {
+    "@emoji-mart/data": "^1.1.2",
+    "@emoji-mart/react": "^1.1.1",
     "bcrypt": "^5.1.0",
     "cypress": "^10.7.0",
+    "emoji-mart": "^5.5.2",
     "eslint": "^8.23.0",
     "fs": "^0.0.1-security",
     "react": "^18.2.0",
