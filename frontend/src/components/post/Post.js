@@ -80,6 +80,7 @@ const Post = ({ post }) => {
   }  
 
   const dateObj = new Date(post.createdAt)
+  const dateObjComment = new Date(comment.createdAt)
   const options = {
     weekday: 'long',
     day: '2-digit',
@@ -91,6 +92,7 @@ const Post = ({ post }) => {
   };
 
   const humanReadableTime = dateObj.toLocaleString('en-GB', options).replace(/,/g, '');
+  const humanReadableTimeComment = dateObjComment.toLocaleString('en-GB', options).replace(/,/g, '');
 
   const hasImage = 'image' in post // boolean: check if post has an image
   let imageLocation;
@@ -127,11 +129,16 @@ const Post = ({ post }) => {
         <div className="invisible"></div>
         <input type='text' id='post' className="new-comment-field" placeholder="Comment" value={newComment} onChange={handleNewCommentChange} ></input>
         <button className="new-comments-submit-btn" onClick={handleSubmit}><i className="fa-regular fa-envelope fa-2x"></i></button>
+        
       </div> 
 
       <div id="comments-container">
         {comments.map(
-              (comment) => ( <div key={comment._id}> {comment.message} </div> )
+              (comment) => ( <div key={comment._id}> {comment.message} 
+              <div id="comment-inner-header">
+          <h3 className="comment-owner-username">{ownerData.username}</h3>
+          <time dateTime={comment.createdAt}>{humanReadableTimeComment}</time>
+        </div></div> )
               )}
       </div>
 
