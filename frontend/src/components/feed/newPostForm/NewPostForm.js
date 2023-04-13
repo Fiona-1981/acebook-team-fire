@@ -7,10 +7,11 @@ const NewPostForm = ({newImg, newPost, handleNewPostChange, handleSubmit, handle
   const [isPickerVisible, setPickerVisible] = useState(false);
   const [currentEmoji, setCurrentEmoji] = useState(null);  
 
-  
+  console.log(isPickerVisible)
   return (
     <>
       <form className="new-post-form" onSubmit={handleSubmit} encType='multipart/form-data'>
+        
         <div>
           <h1>{currentEmoji || 'select emoji'}</h1>
           <button
